@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Osteroid"){
+        if(other.name == "Osteroid(Clone)"){
             _objectPooler.ReturnToPool(gameObject);
         }
         

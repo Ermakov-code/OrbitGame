@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7219561601387454819}
   - component: {fileID: 7219561601387454818}
   - component: {fileID: 7219561601387454817}
-  - component: {fileID: 7219561601387454822}
   m_Layer: 5
   m_Name: Osteroid
   m_TagString: Untagged
@@ -30,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 7219561601387454828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 28.041065, y: 28.041065, z: 28.041065}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,17 +115,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 1
   health: 10
---- !u!114 &7219561601387454822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7219561601387454828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7885c0bd8bdca154b87bc7b4c9e33285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planet: {fileID: 0}
-  radius: 0
