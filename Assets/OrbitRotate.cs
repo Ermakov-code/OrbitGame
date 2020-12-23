@@ -50,6 +50,7 @@ public class OrbitRotate : MonoBehaviour
         // }
         // transform.LookAt(sphere.transform.position);
         Debug.Log("Horizontal log: " + joystick.Horizontal);
+     
     }
     
     private Tween SomeTween(float maxRadius, float expandTime, float rotateSpeed, float totalTime)
@@ -69,4 +70,6 @@ public class OrbitRotate : MonoBehaviour
                     someTransform.localPosition = xzOffset;
                 }));
     }
+    
+    
 }

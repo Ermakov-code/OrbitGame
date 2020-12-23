@@ -836,8 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 0}
-  rotationSpeed: 5
-  runAwaySpeed: 0.33
+  a: 124
 --- !u!1001 &1505861676
 PrefabInstance:
   m_ObjectHideFlags: 0
