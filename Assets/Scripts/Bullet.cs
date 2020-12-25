@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour, IPooledObj
 
     public float damage = 1f;
     private ObjectPooler _objectPooler;
-    private GameObject _particleSystem;
+    private ParticleSystem _particleSystem;
     
     private void Start()
     {
@@ -25,8 +25,12 @@ public class Bullet : MonoBehaviour, IPooledObj
             _objectPooler.ReturnToPool(gameObject);
             //Debug.Log(other.GetComponent<Osteroid>().health);
             other.GetComponent<Osteroid>().health -= damage;
-            
-            _particleSystem.GetComponent<ParticleSystem>().Play();
+            _particleSystem = transform.Find("Blow").GetComponent<ParticleSystem>();
+            if (_particleSystem == null)
+            {
+                Debug.Log("Объект не найден");
+            }
+            _particleSystem.Play();
 
         }
     }

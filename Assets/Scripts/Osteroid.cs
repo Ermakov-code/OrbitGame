@@ -49,17 +49,14 @@ public class Osteroid : MonoBehaviour, IPooledObj
         }
         
            
-            //transform.DOLookAt(planet.transform.position, 0);
+       
            
-            Vector3 a = planet.transform.position - transform.position;
-            Vector3 b = a.normalized;
-            var c = a.magnitude * 0.4f;
-            b *= c;
-
-
-            transform.DOMove(planet.transform.position - b, 3).OnComplete(() => StartCoroutine(BulletSpawn()));
-            Debug.Log((planet.transform.position - transform.position).magnitude);
-
+        Vector3 a = planet.transform.position - transform.position;
+        Vector3 b = a.normalized;
+        var c = a.magnitude * 0.4f;
+        b *= c;
+            
+        transform.DOMove(planet.transform.position - b, 3).OnComplete(() => StartCoroutine(BulletSpawn()));
 
     }
 
