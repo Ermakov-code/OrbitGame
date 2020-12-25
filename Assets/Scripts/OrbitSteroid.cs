@@ -16,6 +16,11 @@ public class OrbitSteroid : MonoBehaviour
     public float radius = 3f;
     public float spawnRate = 0.2f;
 
+
+    //private bool once = false;
+
+   
+
     private void Start()
     {
         _objectPooler = ObjectPooler.Instance;
@@ -24,27 +29,28 @@ public class OrbitSteroid : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         spawnTime += Time.deltaTime;
         if (spawnRate <= spawnTime)
         {
             spawnTime = 0;
+
+            int i = 0;
+            
             GameObject osteroid =  _objectPooler.SpawnFromPool("Osteroid", transform.position + selectRandPos(radius), 
                 transform.rotation);
+            while (!osteroid && i != 10)
+            {
+                osteroid =  _objectPooler.SpawnFromPool("Osteroid", transform.position + selectRandPos(radius), 
+                    transform.rotation);
+                i++;
+            }
         }
-        
-       
-        
-     
-
     }
 
 
     public Vector3 selectRandPos(float radius)
     {
-
         float angle = (float)(Random.value * Math.PI * 2);
-
         return new Vector3((float)(Math.Cos(angle) * radius),(float)(Math.Sin(angle) * radius));
     }
 

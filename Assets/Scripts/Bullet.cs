@@ -3,8 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPooledObj
 {
+    public void OnObjectSpawn()
+    {
+        
+    }
 
     public float damage = 1f;
     private ObjectPooler _objectPooler;
@@ -17,7 +21,9 @@ public class Bullet : MonoBehaviour
     {
         if(other.name == "Osteroid(Clone)"){
             _objectPooler.ReturnToPool(gameObject);
+            Debug.Log(other.GetComponent<Osteroid>().health);
+            other.GetComponent<Osteroid>().health -= damage;
         }
-        
     }
+    
 }

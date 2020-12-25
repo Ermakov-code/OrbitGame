@@ -57,13 +57,23 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        if (objectToSpawn.activeSelf && tag.Equals("Osteroid"))
+        {
+            poolDictionary[tag].Enqueue(objectToSpawn);
+            return null;
+        }
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-        
-        
+
+        IPooledObj pooledObj = objectToSpawn.GetComponent<IPooledObj>();
+
+        if (pooledObj != null)
+        {
+            pooledObj.OnObjectSpawn();
+        }
+
         poolDictionary[tag].Enqueue(objectToSpawn);
-        
         
         return objectToSpawn;
     }
@@ -71,5 +81,21 @@ public class ObjectPooler : MonoBehaviour
     public void ReturnToPool(GameObject obj)
     {
         obj.SetActive(false);
+    }
+
+
+    public bool hasUnActiveObj(string tag)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject obj = poolDictionary[tag].Dequeue();
+            if (!obj.activeSelf)
+            {
+                poolDictionary[tag].Enqueue(obj);
+                return true;
+            }
+            poolDictionary[tag].Enqueue(obj);
+        }
+        return false;
     }
 }
