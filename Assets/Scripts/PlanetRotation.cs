@@ -10,7 +10,7 @@ public class PlanetRotation : MonoBehaviour
     public float rotationSpeed = 0.5f;
     void FixedUpdate()
     {
-        transform.RotateAround(transform.position, new Vector3(Random.value, Random.value, 0), rotationSpeed);
+        transform.RotateAround(transform.position, new Vector3(Random.value * Time.deltaTime, Random.value * Time.deltaTime, 0), rotationSpeed);
     }
 
 

@@ -20,25 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dbe39dd-8624-4091-b6c4-4a055ef76e0f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OrbitGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OrbitGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OrbitGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OrbitGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectPooler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ObjectPooler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OrbitRotate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OrbitRotate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OrbitSteroid.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OrbitSteroid.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Osteroid.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Osteroid.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Osteroid.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Osteroid.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SpawnBullet.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SpawnBullet.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Osteroid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Osteroid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetRotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnBullet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +54,10 @@
         <option value="$PROJECT_DIR$/Assets/OrbitRotate.cs" />
         <option value="$PROJECT_DIR$/Assets/Osteroid.cs" />
         <option value="$PROJECT_DIR$/Assets/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SpawnBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Osteroid.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bullet2.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Osteroid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SpawnBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetRotation.cs" />
       </list>
     </option>
@@ -124,7 +110,7 @@
       <workItem from="1608757787914" duration="8747000" />
       <workItem from="1608767923454" duration="11000" />
       <workItem from="1608817160863" duration="24316000" />
-      <workItem from="1608892592752" duration="16046000" />
+      <workItem from="1608892592752" duration="24152000" />
     </task>
     <servers />
   </component>

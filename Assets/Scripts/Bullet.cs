@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour, IPooledObj
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Osteroid(Clone)"){
+        if(other.name == "EnemyShip(Clone)"){
             _objectPooler.ReturnToPool(gameObject);
             Debug.Log(other.GetComponent<Osteroid>().health);
             other.GetComponent<Osteroid>().health -= damage;

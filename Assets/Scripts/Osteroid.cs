@@ -37,21 +37,43 @@ public class Osteroid : MonoBehaviour, IPooledObj
 
     public void OnObjectSpawn()
     {
-
-
-            health = startHealth;
         
-            transform.DOLookAt(planet.transform.position, 0);
+        
+        health = startHealth;
+        
+        Vector3 moveDirection = planet.transform.position - transform.position; 
+        if (moveDirection != Vector3.zero) 
+        {
+            float angle = Mathf.Atan2(-moveDirection.x, moveDirection.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+        
+           
+            //transform.DOLookAt(planet.transform.position, 0);
+           
             Vector3 a = planet.transform.position - transform.position;
             Vector3 b = a.normalized;
             var c = a.magnitude * 0.4f;
             b *= c;
 
 
-            transform.DOMove(planet.transform.position - b, 3).OnComplete(Fire);
+            transform.DOMove(planet.transform.position - b, 3).OnComplete(() => StartCoroutine(BulletSpawn()));
             Debug.Log((planet.transform.position - transform.position).magnitude);
 
 
+    }
+
+
+    private IEnumerator BulletSpawn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        while (gameObject.activeSelf)
+        {
+            GameObject emenyBullet = _objectPooler.SpawnFromPool("EnemyBullet", transform.position, transform.rotation);
+            emenyBullet.transform.DOMove(planet.transform.position, bulletSpeed);
+            yield return new WaitForSeconds(2f);
+        }
+        yield return null;
     }
 
 
