@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &278498056
 RectTransform:
   m_ObjectHideFlags: 0
@@ -588,7 +588,6 @@ MonoBehaviour:
   restartButton: {fileID: 1042661275}
   korabl: {fileID: 793409581}
   objectPool: {fileID: 599763415}
-  osteroidSpawner: {fileID: 278498055}
   clickSound: {fileID: 8300000, guid: eec271b62f54d1347bbb828b84c89834, type: 3}
 --- !u!4 &583901140
 Transform:
