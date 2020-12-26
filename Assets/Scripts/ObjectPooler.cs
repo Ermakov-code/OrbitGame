@@ -11,8 +11,10 @@ public class ObjectPooler : MonoBehaviour
         public string tag;
         public GameObject prefab;
         public int size;
+        public AudioClip shot;
     }
 
+    [SerializeField] private GameObject pool;
 
     public static ObjectPooler Instance;
 
@@ -23,12 +25,7 @@ public class ObjectPooler : MonoBehaviour
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-
-
-
-
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +60,10 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
         objectToSpawn.SetActive(true);
+        if(tag.Equals("Bullet"))
+            AudioSource.PlayClipAtPoint(pools[0].shot, transform.position);
+        else if (tag.Equals("EnemyBullet"))
+            AudioSource.PlayClipAtPoint(pools[1].shot, transform.position);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
 

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class PlanetRotation : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip osteriodSound;
     public float rotationSpeed = 0.5f;
     public float health = 10f;
 
@@ -17,7 +17,7 @@ public class PlanetRotation : MonoBehaviour
     private ObjectPooler _objectPooler;
     private ParticleSystem _particleSystem;
     private float startHealth;
-
+    [SerializeField] private GameManager _gameManager;
 
     private void Start()
     {
@@ -51,16 +51,18 @@ public class PlanetRotation : MonoBehaviour
             _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", other.transform.position, other.transform.rotation).GetComponent<ParticleSystem>();
             _particleSystem.Play();
             other.gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(osteriodSound, transform.position);
         }
+        
+        healthText.text = health + "/" + startHealth;
+        Debug.Log(health + "/" + startHealth);
 
         if (health <= 0)
         {
             gameObject.SetActive(false);
+            _gameManager.GameOver();
         }
         
-        
-        healthText.text = health + "/" + startHealth;
-        Debug.Log(health + "/" + startHealth);
         
 
     }
