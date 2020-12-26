@@ -6,12 +6,13 @@ public class SpawnBullet : MonoBehaviour
 {
 
 
-    public Joystick joystick;
+    public GameObject joystick;
     
     public float fireRate = 0.5f;
    
     public float fireSpeed = 10f;
-    
+
+    public float energy = 20f;
     
     private ObjectPooler _objectPooler;
     private float fireTimer = 0f;
@@ -28,7 +29,15 @@ public class SpawnBullet : MonoBehaviour
             if (fireRate <= fireTimer)
             {
                 fireTimer = 0;
-                Fire();
+                if (joystick.activeSelf)
+                {
+                    Fire();
+                    energy -= 1;
+                }
+                else
+                {
+                    energy += 1;
+                }
             }
     }
 

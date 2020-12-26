@@ -27,6 +27,14 @@ public class Bullet : MonoBehaviour, IPooledObj
             _particleSystem.Play();
             _objectPooler.ReturnToPool(gameObject);
         }
+
+        if (other.name == "asteroid2(Clone)")
+        {
+            other.GetComponent<Rock>().health -= damage;
+            _particleSystem = _objectPooler.SpawnFromPool("Particle", transform.position, transform.rotation).GetComponent<ParticleSystem>();
+            _particleSystem.Play();
+            _objectPooler.ReturnToPool(gameObject);
+        }
     }
     
 }

@@ -13,11 +13,15 @@ public class PlanetRotation : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
+    
+    private ObjectPooler _objectPooler;
+    private ParticleSystem _particleSystem;
     private float startHealth;
 
 
     private void Start()
     {
+        _objectPooler = ObjectPooler.Instance;
         startHealth = health;
         healthText.text = health + "/" + startHealth;
         Debug.Log(health + "/" + startHealth);
@@ -40,13 +44,21 @@ public class PlanetRotation : MonoBehaviour
             health -= 1;
             other.gameObject.SetActive(false);
         }
-        
+
+        if (other.gameObject.name == "asteroid2(Clone)")
+        {
+            health -= 3;
+            _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", other.transform.position, other.transform.rotation).GetComponent<ParticleSystem>();
+            _particleSystem.Play();
+            other.gameObject.SetActive(false);
+        }
+
         if (health <= 0)
         {
             gameObject.SetActive(false);
         }
-
-
+        
+        
         healthText.text = health + "/" + startHealth;
         Debug.Log(health + "/" + startHealth);
         

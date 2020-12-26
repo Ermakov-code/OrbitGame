@@ -27,10 +27,8 @@ public class OrbitRotate : MonoBehaviour
     void Update()
     {
         
-        
-        //DrugOneFinger();
-        
         OrbitRotation();
+        
     }
 
     private void DrugOneFinger()

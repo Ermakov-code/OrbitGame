@@ -71,6 +71,8 @@
           <e p="OrbitSteroid.cs" t="Include" />
           <e p="Osteroid.cs" t="Include" />
           <e p="PlanetRotation.cs" t="Include" />
+          <e p="Rock.cs" t="Include" />
+          <e p="RockSpawner.cs" t="Include" />
           <e p="SpawnBullet.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

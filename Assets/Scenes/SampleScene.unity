@@ -168,7 +168,7 @@ RectTransform:
   m_LocalScale: {x: 0.024213076, y: 0.024213076, z: 0.024213076}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -318,6 +318,9 @@ MonoBehaviour:
   - tag: ParticleEnemy
     prefab: {fileID: 3430786660686280382, guid: d0f559dcf5b4bc543a0d8b51e36d83cf, type: 3}
     size: 3
+  - tag: Rock
+    prefab: {fileID: 2215961674839167472, guid: 0ccee8cb4549bad40857ddd637f9954b, type: 3}
+    size: 10
 --- !u!4 &599763417
 Transform:
   m_ObjectHideFlags: 0
@@ -330,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755400247 stripped
 GameObject:
@@ -401,7 +404,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &793578611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793578613}
+  - component: {fileID: 793578612}
+  m_Layer: 0
+  m_Name: RockSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &793578612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793578611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bceb4c851f2aa4c839e9db533cd90f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5.96
+  spawnRate: 4.62
+--- !u!4 &793578613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793578611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950582370
 GameObject:
@@ -493,7 +541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082284969
 GameObject:
@@ -588,7 +636,7 @@ RectTransform:
   - {fileID: 19717008}
   - {fileID: 1511758161}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -768,6 +816,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1573606230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3881087803815115468, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+  m_PrefabInstance: {fileID: 1505861676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2068991512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
@@ -891,7 +944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &64967465889579309
 PrefabInstance:
@@ -1117,7 +1170,7 @@ PrefabInstance:
     - target: {fileID: 4598095609058048774, guid: 6d4f238f611ab5442b9ecae28cbe2ec1, type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 19717009}
+      objectReference: {fileID: 1573606230}
     - target: {fileID: 4598095610120955665, guid: 6d4f238f611ab5442b9ecae28cbe2ec1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
