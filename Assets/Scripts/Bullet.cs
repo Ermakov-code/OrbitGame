@@ -22,16 +22,10 @@ public class Bullet : MonoBehaviour, IPooledObj
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "EnemyShip(Clone)"){
-            _objectPooler.ReturnToPool(gameObject);
-            //Debug.Log(other.GetComponent<Osteroid>().health);
             other.GetComponent<Osteroid>().health -= damage;
-            _particleSystem = transform.Find("Blow").GetComponent<ParticleSystem>();
-            if (_particleSystem == null)
-            {
-                Debug.Log("Объект не найден");
-            }
+            _particleSystem = _objectPooler.SpawnFromPool("Particle", transform.position, transform.rotation).GetComponent<ParticleSystem>();
             _particleSystem.Play();
-
+            _objectPooler.ReturnToPool(gameObject);
         }
     }
     

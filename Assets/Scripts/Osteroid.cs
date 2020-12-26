@@ -18,6 +18,8 @@ public class Osteroid : MonoBehaviour, IPooledObj
     public GameObject planet;
 
     private ObjectPooler _objectPooler;
+
+    private ParticleSystem _particleSystem;
     
     public float health;
 
@@ -37,7 +39,6 @@ public class Osteroid : MonoBehaviour, IPooledObj
 
     public void OnObjectSpawn()
     {
-        
         
         health = startHealth;
         
@@ -73,7 +74,14 @@ public class Osteroid : MonoBehaviour, IPooledObj
         yield return null;
     }
 
-
+    
+    private void OnDisable()
+    {
+        _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation).GetComponent<ParticleSystem>();
+        _particleSystem.Play();
+    }
+    
+    
     public void Fire()
     {
         if (gameObject.activeSelf)
