@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
+    [SerializeField] private GameObject planet;
     [Serializable]
     public class Pool
     {
@@ -13,8 +14,6 @@ public class ObjectPooler : MonoBehaviour
         public int size;
         public AudioClip shot;
     }
-
-    [SerializeField] private GameObject pool;
 
     public static ObjectPooler Instance;
 
@@ -48,35 +47,41 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        if (planet.activeInHierarchy)
         {
-            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
-            return null;
-        }
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-        if (objectToSpawn.activeSelf && tag.Equals("Osteroid"))
-        {
+            if (!poolDictionary.ContainsKey(tag))
+            {
+                Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
+                return null;
+            }
+
+            GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+            if (objectToSpawn.activeSelf && tag.Equals("Osteroid"))
+            {
+                poolDictionary[tag].Enqueue(objectToSpawn);
+                return null;
+            }
+
+            objectToSpawn.SetActive(true);
+            if (tag.Equals("Bullet"))
+                AudioSource.PlayClipAtPoint(pools[0].shot, transform.position);
+            else if (tag.Equals("EnemyBullet"))
+                AudioSource.PlayClipAtPoint(pools[1].shot, transform.position);
+            objectToSpawn.transform.position = position;
+            objectToSpawn.transform.rotation = rotation;
+
+            IPooledObj pooledObj = objectToSpawn.GetComponent<IPooledObj>();
+
+            if (pooledObj != null)
+            {
+                pooledObj.OnObjectSpawn();
+            }
+
             poolDictionary[tag].Enqueue(objectToSpawn);
-            return null;
+
+            return objectToSpawn;
         }
-        objectToSpawn.SetActive(true);
-        if(tag.Equals("Bullet"))
-            AudioSource.PlayClipAtPoint(pools[0].shot, transform.position);
-        else if (tag.Equals("EnemyBullet"))
-            AudioSource.PlayClipAtPoint(pools[1].shot, transform.position);
-        objectToSpawn.transform.position = position;
-        objectToSpawn.transform.rotation = rotation;
-
-        IPooledObj pooledObj = objectToSpawn.GetComponent<IPooledObj>();
-
-        if (pooledObj != null)
-        {
-            pooledObj.OnObjectSpawn();
-        }
-
-        poolDictionary[tag].Enqueue(objectToSpawn);
-        
-        return objectToSpawn;
+        return null;
     }
 
     public void ReturnToPool(GameObject obj)

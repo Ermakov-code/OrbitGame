@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Osteroid : MonoBehaviour, IPooledObj
 {
-
-
     public float startHealth = 4f;
 
     public float size = 1f;
@@ -22,6 +22,8 @@ public class Osteroid : MonoBehaviour, IPooledObj
     private ParticleSystem _particleSystem;
     
     public float health;
+
+    private Coroutine _coroutine;
 
     public void Start()
     {
@@ -49,9 +51,6 @@ public class Osteroid : MonoBehaviour, IPooledObj
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
         
-           
-       
-           
         Vector3 a = planet.transform.position - transform.position;
         Vector3 b = a.normalized;
         var c = a.magnitude * 0.4f;
@@ -65,20 +64,35 @@ public class Osteroid : MonoBehaviour, IPooledObj
     private IEnumerator BulletSpawn()
     {
         yield return new WaitForSeconds(0.5f);
-        while (gameObject.activeSelf)
+        while (gameObject.activeSelf && planet.activeSelf)
         {
             GameObject emenyBullet = _objectPooler.SpawnFromPool("EnemyBullet", transform.position, transform.rotation);
             emenyBullet.transform.DOMove(planet.transform.position, bulletSpeed);
             yield return new WaitForSeconds(2f);
         }
+        
         yield return null;
     }
 
     
     private void OnDisable()
     {
-        _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation).GetComponent<ParticleSystem>();
-        _particleSystem.Play();
+        if (_objectPooler == null)
+            return;
+        
+        var a = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation);
+        
+        Debug.Log(ReferenceEquals(a, null));
+
+        if (!ReferenceEquals(a, null))
+        {
+            _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation)
+                ?.GetComponent<ParticleSystem>();
+            if (_particleSystem != null)
+            {
+                _particleSystem.Play();
+            }
+        }
     }
     
     

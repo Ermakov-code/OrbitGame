@@ -14,8 +14,8 @@ public class Rock : MonoBehaviour, IPooledObj
 
     public float health;
 
-    
-    
+
+    public ScoreCount scoreText;
     private ObjectPooler _objectPooler;
     private ParticleSystem _particleSystem;
     public void Start()
@@ -26,7 +26,7 @@ public class Rock : MonoBehaviour, IPooledObj
     public void OnObjectSpawn()
     {
         health = startHealth;
-        transform.DOMove(planet.transform.position, 8).SetEase(Ease.Linear);
+        transform.DOMove(planet.transform.position, 10).SetEase(Ease.Linear);
     }
 
     private void FixedUpdate()
@@ -39,7 +39,11 @@ public class Rock : MonoBehaviour, IPooledObj
 
     private void OnDisable()
     {
-        _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation).GetComponent<ParticleSystem>();
+        if (_objectPooler == null)
+            return;
+        
+        _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation)?.GetComponent<ParticleSystem>();
         _particleSystem.Play();
+        scoreText.incScore(2f);
     }
-}
+} 

@@ -128,3 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 64967465436200730, guid: b9d37d63fd0d66a4ea481137dc7a2c7f, type: 3}
+  rotationSpeed: 10
+  startHealth: 5
+  health: 0
+  scoreText: {fileID: 6754475047095908007, guid: 289f3befc43c7054e8a0cb71b78a293b, type: 3}

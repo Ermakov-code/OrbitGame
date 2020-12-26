@@ -62,8 +62,5 @@ public class PlanetRotation : MonoBehaviour
             gameObject.SetActive(false);
             _gameManager.GameOver();
         }
-        
-        
-
     }
 }

@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject korabl;
     [SerializeField] private GameObject objectPool;
-
+    [SerializeField] private GameObject rockSpawner;
+    [SerializeField] private GameObject osteroidSpawner;
+    
     [SerializeField] private AudioClip clickSound;
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
             SoundOn();
         else
             SoundOff();
+        rockSpawner.SetActive(false);
+        osteroidSpawner.SetActive(false);
     }
 
     void Start()
@@ -69,6 +73,8 @@ public class GameManager : MonoBehaviour
         korabl.GetComponent<OrbitRotate>().enabled = true;
         gameCanvas.SetActive(true);
         objectPool.GetComponent<ObjectPooler>().enabled = true;
+        rockSpawner.SetActive(true);
+        osteroidSpawner.SetActive(true);
     }
 
     private void CloseSettings()
@@ -98,5 +104,7 @@ public class GameManager : MonoBehaviour
         korabl.GetComponent<OrbitRotate>().enabled = false;
         gameCanvas.SetActive(false);
         objectPool.GetComponent<ObjectPooler>().enabled = false;
+        rockSpawner.SetActive(false);
+        osteroidSpawner.SetActive(false);
     }
 }

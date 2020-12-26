@@ -16,9 +16,13 @@ public class SpawnBullet : MonoBehaviour
     
     private ObjectPooler _objectPooler;
     private float fireTimer = 0f;
+
+
+    public HealthBar energyBar;
     void Start()
     {
        _objectPooler = ObjectPooler.Instance;
+       energyBar.SetMaxHealth(energy);
        
     }
 
@@ -29,15 +33,25 @@ public class SpawnBullet : MonoBehaviour
             if (fireRate <= fireTimer)
             {
                 fireTimer = 0;
-                if (joystick.activeSelf)
+                if (!joystick.activeSelf)
                 {
-                    Fire();
                     energy -= 1;
+                    energyBar.SetHealth(energy);
+                    if (energy > 0)
+                    {
+                        Fire();
+                    }
+
                 }
                 else
                 {
-                    energy += 1;
+                    if (energy <= 20)
+                    {
+                        energy += 2;
+                    }
+                    energyBar.SetHealth(energy);
                 }
+                Debug.Log(energy);
             }
     }
 
