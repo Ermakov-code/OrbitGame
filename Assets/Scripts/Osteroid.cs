@@ -24,6 +24,8 @@ public class Osteroid : MonoBehaviour, IPooledObj
     public float health;
 
     private Coroutine _coroutine;
+    
+    [SerializeField] public ScoreCount scoreText = default;
 
     public void Start()
     {
@@ -91,6 +93,7 @@ public class Osteroid : MonoBehaviour, IPooledObj
             if (_particleSystem != null)
             {
                 _particleSystem.Play();
+                ScoreCount.Instance.incScore(1f);
             }
         }
     }

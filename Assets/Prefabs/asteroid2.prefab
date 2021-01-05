@@ -132,3 +132,4 @@ MonoBehaviour:
   startHealth: 5
   health: 0
   scoreText: {fileID: 6754475047095908007, guid: 289f3befc43c7054e8a0cb71b78a293b, type: 3}
+  text: {fileID: 4982214601801534468, guid: 289f3befc43c7054e8a0cb71b78a293b, type: 3}

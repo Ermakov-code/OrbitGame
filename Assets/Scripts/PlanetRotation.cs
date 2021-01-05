@@ -48,6 +48,7 @@ public class PlanetRotation : MonoBehaviour
         if (other.gameObject.name == "asteroid2(Clone)")
         {
             health -= 3;
+            
             _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", other.transform.position, other.transform.rotation).GetComponent<ParticleSystem>();
             _particleSystem.Play();
             other.gameObject.SetActive(false);

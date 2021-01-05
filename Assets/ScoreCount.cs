@@ -7,11 +7,18 @@ using UnityEngine;
 public class ScoreCount : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    private float score = 0f;
+    public float score = 0f;
 
+    public static ScoreCount Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
+        this.score = 0f;
         scoreText.text = "Score: " + score;
     }
 

@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rock : MonoBehaviour, IPooledObj
 {
-    
     public GameObject planet;
     public float rotationSpeed = 10f;
 
@@ -14,8 +15,8 @@ public class Rock : MonoBehaviour, IPooledObj
 
     public float health;
 
-
-    public ScoreCount scoreText;
+    [SerializeField] public ScoreCount scoreText = default;
+    
     private ObjectPooler _objectPooler;
     private ParticleSystem _particleSystem;
     public void Start()
@@ -43,7 +44,8 @@ public class Rock : MonoBehaviour, IPooledObj
             return;
         
         _particleSystem = _objectPooler.SpawnFromPool("ParticleEnemy", transform.position, transform.rotation)?.GetComponent<ParticleSystem>();
-        _particleSystem.Play();
-        scoreText.incScore(2f);
+        _particleSystem.Play(); 
+        
+        ScoreCount.Instance.incScore(2f);
     }
 } 
