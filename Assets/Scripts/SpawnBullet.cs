@@ -41,7 +41,6 @@ public class SpawnBullet : MonoBehaviour
                     {
                         Fire();
                     }
-
                 }
                 else
                 {

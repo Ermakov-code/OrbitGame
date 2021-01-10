@@ -33,9 +33,7 @@ public class OrbitSteroid : MonoBehaviour
         if (spawnRate <= spawnTime)
         {
             spawnTime = 0;
-
             int i = 0;
-            
             GameObject osteroid =  _objectPooler.SpawnFromPool("Osteroid", transform.position + selectRandPos(radius), 
                 transform.rotation);
             while (!osteroid && i != 10)

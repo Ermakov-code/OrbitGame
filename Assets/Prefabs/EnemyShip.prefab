@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c3705bb0652d94eb885d6c61f477f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 3
+  startHealth: 2
   size: 1
   bulletSpeed: 1
   planet: {fileID: 64967465436200730, guid: b9d37d63fd0d66a4ea481137dc7a2c7f, type: 3}
